@@ -2,7 +2,14 @@ import mongoengine as me
 import datetime
 
 # Conexión a la base de datos MongoDB
-me.connect('inventario_empresa_db', host='localhost', port=27017)
+me.connect(
+    'inventario_empresa_db',
+    host='localhost',
+    port=27017,
+    username='mongo',
+    password='mongo',
+    authentication_source='admin'
+)
 
 # Colección Usuarios
 class Usuario(me.Document):
