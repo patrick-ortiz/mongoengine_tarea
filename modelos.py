@@ -1,13 +1,20 @@
 import mongoengine as me
 import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MONGO_USER = os.getenv("MONGO_USER")
+MONGO_PASSWORD = os.getenv("MONGO_PASSWORD")
 
 # Conexión a la base de datos MongoDB
 me.connect(
     'inventario_empresa_db',
     host='localhost',
     port=27017,
-    username='mongo',
-    password='mongo',
+    username=MONGO_USER,
+    password=MONGO_PASSWORD,
     authentication_source='admin'
 )
 
